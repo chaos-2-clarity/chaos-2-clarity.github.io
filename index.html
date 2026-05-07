@@ -12,13 +12,22 @@
         }
         
         body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: white;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
         }
         
         .container {
@@ -26,9 +35,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 30px 20px;
             width: 100%;
             height: 100vh;
+            padding: 30px 20px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 1;
         }
         
         .brand-logo {
@@ -36,20 +48,19 @@
             height: auto;
             margin-bottom: 20px;
             opacity: 0.95;
-        }
-        
-        video {
-            width: 70vw;
-            height: 70vh;
-            object-fit: contain;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 10px 40px rgba(25, 45, 85, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 50%;
         }
         
         .content {
             text-align: center;
             margin-top: 20px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 40px 50px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
         
         h1 {
@@ -74,7 +85,7 @@
         p {
             color: #5a6c7d;
             font-size: 0.95em;
-            margin-bottom: 20px;
+            margin-bottom: 0;
             line-height: 1.6;
             max-width: 500px;
             margin-left: auto;
@@ -151,10 +162,9 @@
 </head>
 <body>
     <div class="container">
-        <img src="Logo_Chaos.png" alt="Chaos to Clarity Logo" class="brand-logo">
         
         <video autoplay muted loop playsinline>
-            <source src="chaos-webm.webm" type="video/webm">
+            <source src="Logo_.mp4" type="video/mp4">
             Your browser doesn't support HTML5 video.
         </video>
         

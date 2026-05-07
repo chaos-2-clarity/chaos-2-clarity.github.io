@@ -25,12 +25,12 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 75vw;
-            height: 75vh;
-            max-width: 75%;
-            max-height: 75%;
-            object-fit: cover;
-            z-index: -1;
+            width: 85vw;
+            height: 85vh;
+            max-width: 85%;
+            max-height: 70%;
+            object-fit: contain;
+            z-index: 1;
             border-radius: 12px;
         }
         
@@ -44,15 +44,15 @@
             padding: 30px 20px;
             box-sizing: border-box;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
         
         .brand-logo {
             width: 300px;
             height: auto;
-            margin-top: 30px;
+            margin-top: 50px;
             opacity: 1;
-            z-index: 2;
+            z-index: 3;
             position: relative;
         }
         
@@ -166,11 +166,11 @@
     <div class="container">
         
         <video autoplay muted loop playsinline>
-            <source src="Logo_Only.webm" type="video/webm">
+            <source src="chaos_animation.webm" type="video/webm">
             Your browser doesn't support HTML5 video.
         </video>
         
-        <img src="Logo_Chaos__2_.png" alt="Chaos to Clarity Logo" class="brand-logo">
+        <img src="chaos_logo.png" alt="Chaos to Clarity Logo" class="brand-logo">
     </div>
     
     <script>

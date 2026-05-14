@@ -12,17 +12,34 @@
         body {
             margin: 0;
             padding: 0;
-            background: #fbfdff;
+            background: #fffffc;
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
         .video-container {
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
+            outline: none;
+            border: none;
         }
         
         .video-container:hover {
             transform: scale(1.15);
+        }
+        
+        video {
+            outline: none;
+            border: none;
+            background: #fffffc;
+            display: block;
+        }
+        
+        video::-webkit-media-controls {
+            display: none !important;
+        }
+        
+        video:focus {
+            outline: none;
         }
     </style>
 </head>
@@ -36,7 +53,7 @@
             const [isHovering, setIsHovering] = useState(false);
 
             return (
-                <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center px-6 py-12" style={{ backgroundColor: '#fbfdff' }}>
+                <div className="min-h-screen flex flex-col items-center justify-center px-6 py-12" style={{ backgroundColor: '#fffffc' }}>
                     {/* Logo */}
                     <img
                         src="chaos_logo.png"

@@ -4,85 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaos to Clarity - AI & Automation for Scalable Operations</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            min-height: 100vh;
-            background: white;
+            background: #fbfdff;
             font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            min-height: 100vh;
-            padding: 30px 20px;
-            box-sizing: border-box;
+        .video-container {
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
         }
         
-        .brand-logo {
-            width: 700px;
-            max-width: 90%;
-            height: auto;
-            margin-bottom: 20px;
-        }
-        
-        video {
-            width: 70vw;
-            max-width: 900px;
-            height: auto;
-            max-height: 50vh;
-            object-fit: contain;
-            border-radius: 12px;
-            margin-bottom: 30px;
-        }
-        
-        .construction-text {
-            color: #192D55;
-            font-size: 2.5em;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .brand-logo {
-                width: 90%;
-                margin-bottom: 15px;
-            }
-            
-            video {
-                width: 95vw;
-                margin-bottom: 20px;
-            }
-            
-            .construction-text {
-                font-size: 1.5em;
-            }
+        .video-container:hover {
+            transform: scale(1.15);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="chaos_logo.png" alt="Chaos to Clarity Logo" class="brand-logo">
-        
-        <video autoplay muted loop playsinline>
-            <source src="chaos_animation.webm" type="video/webm">
-            Your browser doesn't support HTML5 video.
-        </video>
-        
-        <div class="construction-text">Site Under Construction</div>
-    </div>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        function ChaosToClarity() {
+            const [isHovering, setIsHovering] = useState(false);
+
+            return (
+                <div className="min-h-screen bg-blue-50 flex flex-col items-center justify-center px-6 py-12" style={{ backgroundColor: '#fbfdff' }}>
+                    {/* Logo */}
+                    <img
+                        src="chaos_logo.png"
+                        alt="Chaos to Clarity Logo"
+                        className="w-full max-w-2xl mb-8"
+                    />
+
+                    {/* Animation with hover zoom */}
+                    <div
+                        className="video-container"
+                        onMouseEnter={() => setIsHovering(true)}
+                        onMouseLeave={() => setIsHovering(false)}
+                        style={{
+                            transform: isHovering ? 'scale(1.15)' : 'scale(1)',
+                        }}
+                    >
+                        <video
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            className="w-full max-w-4xl rounded-lg"
+                            style={{
+                                maxHeight: '60vh',
+                                objectFit: 'contain',
+                            }}
+                        >
+                            <source src="chaos_animation.webm" type="video/webm" />
+                            Your browser doesn't support HTML5 video.
+                        </video>
+                    </div>
+
+                    {/* Under Construction Text */}
+                    <h1 className="text-5xl font-bold text-blue-900 mt-12 text-center">
+                        Site Under Construction
+                    </h1>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ChaosToClarity />);
+    </script>
 </body>
 </html>
